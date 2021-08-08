@@ -19,6 +19,8 @@ function solve (input) {
         let action = actions[command];
         action(token);  
     }
+
+    
     function heal (token) {
         let currentHero = token[1];
         let rechargeValue = Number(token[2]);
