@@ -13,6 +13,7 @@ function solve (input) {
         mp = Number(mp)
         obj[hero] = {hp, mp};
     }
+    
     while (input[0]!='End') {
         let token = input.shift().split(' - ');
         let command = token[0];
