@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        label {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Register</h2>
+    <form id="register-form">
+        <!--method="POST" action = "url"-->
+        <label>Email: <input type="text" name="email" /></label>
+        <label>Password: <input type="password" name="password" /></label>
+        <label>Repeat: <input type="password" name="repass" /></label>
+        <input type="submit" value="Register" />
+    </form>
+        <!------------------------------------------------------------------------------------------------>
+    <h2>Login</h2>
+    <form id="login-form">
+        <!--method="POST" action = "url"-->
+        <label>Email: <input type="text" name="email" /></label>
+        <label>Password: <input type="password" name="password" /></label>
+        <input type="submit" value="Login" />
+    </form>
+        <!------------------------------------------------------------------------------------------------>
+    
+    <script>
+        //-----------------------------------------------------------------------------------------------------
+        const registerForm = document.getElementById('register-form');
+        registerForm.addEventListener('submit', onRegister);
+
+        async function onRegister(event) {
+            const url = `http://localhost:3030/users/register`
+
+            event.preventDefault();
+            const formData = new FormData(registerForm);
+
+            const email = formData.get('email').trim();
+            const password = formData.get('password').trim();
+            const repass = formData.get('repass').trim();
+            try {
+                const response = await fetch(url, {
+                    method: 'post',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        email,
+                        password
+                    })
+                });
+                if (response.ok == false) {
+                    throw new Error(`${response.status} ${response.statusText}`)
+                }
+                const result = await response.json();
+
+
+                const token = result.accessToken;
+                sessionStorage.setItem('token', token);
+                // console.log([...formData.entries()]) 
+                window.location = `http://127.0.0.1:5500/demoRegister.html`
+            } catch (error) {
+                alert(error.message);
+            }
+        }
+        //-----------------------------------------------------------------------------------------------------
+        const loginForm = document.getElementById('login-form');
+        loginForm.addEventListener('submit', onLogin);
+
+        async function onLogin(event) {
+            const url = `http://localhost:3030/users/login`
+
+            event.preventDefault();
+            const formData = new FormData(loginForm);
+
+            const email = formData.get('email').trim();
+            const password = formData.get('password').trim();
+
+            const response = await fetch(url, {
+                method: 'post',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email,
+                    password
+                })
+            });
+
+            const result = await response.json();
+            console.log(result)
+
+            const token = result.accessToken;
+            sessionStorage.setItem('token', token);
+            // console.log([...formData.entries()]) 
+            window.location = `http://127.0.0.1:5500/demoLogin.html`
+        }
+        //----------------------------------------------------------------------------
+
+        async function getData () {
+            const url = 'http://localhost:3030/jsonstore/phonebook';
+            const options = {
+                headers: {}
+            };
+            const token = sessionStorage.getItem('token');
+            if (token !== null) {
+                options.headers['X-Authorization'] = token;
+            }
+            const response = await fetch (url, options);
+            const data = await response.json();
+
+            console.log(data)
+        }
+        
+        
+    </script>
+</body>
+
+</html>
