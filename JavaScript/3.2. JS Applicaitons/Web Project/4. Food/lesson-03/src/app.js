@@ -1,4 +1,5 @@
 window.addEventListener('load', loading);
+window.addEventListener('load', loadingTwo)
 const main = document.querySelector('main')
 let closed = true;
 
@@ -94,4 +95,50 @@ async function moreRequest(id) {
         alert(error.message)
     }
 }
+//----------------------------------------------------------------------------------
+
+const registerBtn = document.getElementById('registerBtn');
+const logInBtn = document.getElementById('logInBtn')
+const logOutbtn = document.getElementById('logOutBtn')
+const createBtn = document.getElementById('createBtn')
+
+async function loadingTwo(event) {
+    event.preventDefault();
+    const token = sessionStorage.getItem('token');
+    if (token != null) {
+        registerBtn.style.display = 'none';
+        logInBtn.style.display = 'none';
+    } else {
+        createBtn.style.display = 'none';
+        logOutbtn.style.display = 'none';
+    };
+}
+
+logOutbtn.addEventListener('click', logOut);
+
+async function logOut(event) {
+    const url = `http://localhost:3030/users/logout`;
+    const token = sessionStorage.getItem('token')
+
+    try {
+        const response = await fetch(url, {
+            methor: 'get',
+            headers: {
+                'X-Authorization': token
+            },
+
+        });
+        if (response.ok == false) {
+            const error = await response.message;
+            throw new Error(error)
+        }
+        sessionStorage.clear();
+
+    } catch (error) {
+        alert(error.message)
+    }
+}
+
+//------------------------------------------------------------------------------------
+
 
