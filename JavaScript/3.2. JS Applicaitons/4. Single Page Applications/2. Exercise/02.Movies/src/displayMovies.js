@@ -2,7 +2,7 @@ import { displayView } from "./app.js";
 import { deleteFunc } from "./delete.js";
 import { editMovie } from "./editMovie.js";
 import { homeView } from "./home.js";
-import { getLikes, getLikesNum } from "./likes.js";
+import { getLikes, getLikesNum, getUserLike } from "./likes.js";
 
 
 export async function displayMovies(ev) {
@@ -103,18 +103,20 @@ async function detailsRequest(element) {
 
     const likeBtn = document.getElementById('likeBtn');
     let movie = sessionStorage.getItem(element._id)
-    let user = sessionStorage.getItem('ownerId')
+    let user = sessionStorage.getItem('ownerId');
     if (movie == user) {
         likeBtn.remove();
         //location.reload()
     }
+   
     likeBtn.addEventListener('click', async (ev) => {
-        //console.log(element._id)
+        //console.log(element._id);
         getLikes(element._id, likeBtn);
         const likesNum = document.getElementById('likesNumber');
         likesNum.textContent = `Likes: ${await getLikesNum(element._id)}`;
         //getLikesNum(element._id)
-        
+        const result = await getUserLike(element._id, user);
+        console.log(result)
     })
 
     if (element._ownerId != sessionStorage.getItem('ownerId')) {
