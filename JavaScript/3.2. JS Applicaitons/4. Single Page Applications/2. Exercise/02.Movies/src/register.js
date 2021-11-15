@@ -44,6 +44,8 @@ export async function registerRequest (ev) {
         const token = result.accessToken;
         sessionStorage.setItem('token', token);
         sessionStorage.setItem('email', result.email);
+        sessionStorage.setItem('ownerId', result._id)
+
         homeView()
         location.reload()
     } catch (err) {

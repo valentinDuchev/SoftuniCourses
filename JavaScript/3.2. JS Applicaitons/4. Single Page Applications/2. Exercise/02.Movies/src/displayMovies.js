@@ -2,6 +2,7 @@ import { displayView } from "./app.js";
 import { deleteFunc } from "./delete.js";
 import { editMovie } from "./editMovie.js";
 import { homeView } from "./home.js";
+import { getLikes, getLikesNum } from "./likes.js";
 
 
 export async function displayMovies(ev) {
@@ -61,7 +62,7 @@ export async function displayMovies(ev) {
     }
 }
 
-function detailsRequest(element) {
+async function detailsRequest(element) {
     const newSection = document.createElement('section');
     newSection.innerHTML = `
     <div class="container">
@@ -79,15 +80,12 @@ function detailsRequest(element) {
                             <a class="btn btn-warning" id="editBtn" href="#">Edit</a>
                             <a class="btn btn-primary" id="likeBtn" href="#">Like</a>
                             <a class ="btn" id="homePageBtn" href="#">Return to Home page</a>
-                            <span class="enrolled-span">Liked 1</span>
+                            <span id="likesNumber" class="enrolled span">Likes: ${await getLikesNum(element._id)}</span>
                         </div>
                     </div>
                 </div>
     `
     displayView(newSection)
-    console.log(element._ownerId)
-    console.log(sessionStorage.getItem('ownerId'))
-    console.log(newSection)
     const homebtn = document.getElementById('homePageBtn');
     homebtn.addEventListener('click', (ev) => {
         homeView()
@@ -97,17 +95,33 @@ function detailsRequest(element) {
     deleteBtn.addEventListener('click', (ev) => {
         deleteFunc(element._id);
     })
+
     const editBtn = document.getElementById('editBtn');
     editBtn.addEventListener('click', (ev) => {
         editMovie(element._id);
     })
-    const likeBtn = document.getElementById('likeBtn');
-    likeBtn.addEventListener('click', (ev) => {
 
+    const likeBtn = document.getElementById('likeBtn');
+    let movie = sessionStorage.getItem(element._id)
+    let user = sessionStorage.getItem('ownerId')
+    if (movie == user) {
+        likeBtn.remove();
+        //location.reload()
+    }
+    likeBtn.addEventListener('click', async (ev) => {
+        //console.log(element._id)
+        getLikes(element._id, likeBtn);
+        const likesNum = document.getElementById('likesNumber');
+        likesNum.textContent = `Likes: ${await getLikesNum(element._id)}`;
+        //getLikesNum(element._id)
+        
     })
+
     if (element._ownerId != sessionStorage.getItem('ownerId')) {
         deleteBtn.style.display = 'none';
         editBtn.style.display = 'none';
+    } else {
+        likeBtn.style.display = 'none'
     }
 }
 

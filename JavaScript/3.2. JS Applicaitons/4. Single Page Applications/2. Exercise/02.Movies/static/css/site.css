@@ -18,7 +18,7 @@
     margin-left: 10px;
 }
 
-.enrolled-span {
+.enrolled span {
     text-decoration: underline;
     background-color: green;
     color: white;

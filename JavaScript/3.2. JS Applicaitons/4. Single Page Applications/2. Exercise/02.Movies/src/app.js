@@ -41,10 +41,10 @@ export function addMovieBtnClick () {
         addMovieView();
     }
 };
-console.log('yes')
+//console.log('yes')
 const movies = document.getElementById('movie');
-console.log('yes')
-console.log(movies)
+//console.log('yes')
+//console.log(movies)
 
 homeView()
 
