@@ -15,7 +15,6 @@ export async function displayMovies(ev) {
             throw new Error(error.message)
         }
         const result = await response.json();
-        //console.log(result);
         const moviesSection = document.getElementById('movie');
         for (let i = 0; i <= 3; i++) {
             moviesSection.children[0].children[0].children[0].children[0].remove();
@@ -42,7 +41,6 @@ export async function displayMovies(ev) {
                 const currentName = (ev.target.parentNode.parentNode.parentNode.children[1].children[0].textContent);
                 for (let element of result) {
                     if (element.title == currentName) {
-                        //console.log(element)
                         const token = sessionStorage.getItem('token');
                         try {
                             if (token == null) {
@@ -106,15 +104,12 @@ async function detailsRequest(element) {
     let user = sessionStorage.getItem('ownerId');
     if (movie == user) {
         likeBtn.remove();
-        //location.reload()
     }
    
     likeBtn.addEventListener('click', async (ev) => {
-        //console.log(element._id);
         getLikes(element._id, likeBtn);
         const likesNum = document.getElementById('likesNumber');
         likesNum.textContent = `Likes: ${await getLikesNum(element._id)}`;
-        //getLikesNum(element._id)
         const result = await getUserLike(element._id, user);
         console.log(result)
     })

@@ -41,7 +41,6 @@ async function addMovieRequest (ev) {
             throw new Error (error.message)
         } 
         const result = await response.json();
-        //console.log(result);
         homeView()
         location.reload()
 

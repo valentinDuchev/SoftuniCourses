@@ -49,12 +49,3 @@ export async function editMovie(id) {
 }
 
 
-/*
-
-
-export function loginView () {
-    displayView(section);
-    section.children[0].addEventListener('submit', loginRequest);
-}
-
-*/

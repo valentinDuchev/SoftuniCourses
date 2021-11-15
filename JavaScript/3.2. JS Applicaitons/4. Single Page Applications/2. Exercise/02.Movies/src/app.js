@@ -31,8 +31,6 @@ buttons.forEach(button => {
 });
 const token = sessionStorage.getItem('token');
 const addMovieButton = document.getElementById('add-movie-button');
-//console.log(addMovieButton)
-//addMovieButton.children[0].addEventListener('click', addMovieBtnClick);
 
 export function addMovieBtnClick () {
     if (token == null) {
@@ -41,10 +39,7 @@ export function addMovieBtnClick () {
         addMovieView();
     }
 };
-//console.log('yes')
 const movies = document.getElementById('movie');
-//console.log('yes')
-//console.log(movies)
 
 homeView()
 

@@ -21,7 +21,6 @@ export async function getLikes (id, likeBtn) {
         sessionStorage.setItem(`${result.movieId}`, result._ownerId)
         likeBtn.remove()
         getLikesNum(id)
-        //location.reload()
         console.log(result)
     } catch (error) {
         alert (error.message)

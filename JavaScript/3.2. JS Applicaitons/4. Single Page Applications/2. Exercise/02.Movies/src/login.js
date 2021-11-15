@@ -41,7 +41,6 @@ export async function loginRequest (event) {
         sessionStorage.setItem('email', result.email)
         sessionStorage.setItem('ownerId', result._id)
         
-        //displayView();
         homeView();
         location.reload()
     } catch (error) {
