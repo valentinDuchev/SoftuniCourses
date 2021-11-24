@@ -4,5 +4,6 @@ export const towns = [
     'Varna',
     'Plovdiv',
     'Dolna Bania',
-    'Gorna Bania'
+    'Gorna Bania', 
+    'Dobrich'
 ];
