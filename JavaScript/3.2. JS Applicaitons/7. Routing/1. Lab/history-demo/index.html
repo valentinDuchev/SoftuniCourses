@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hash routing demo</title>
+</head>
+<body>
+    <h1>Hash routing demo</h1>
+
+    <nav>
+        <a href="/home">Home</a>
+        <a href="/catalog">Catalog</a>
+        <a href="/about">About</a>
+    </nav>
+
+    <main>
+       
+        
+    </main>
+    
+</body>
+
+<script>
+    window.addEventListener('popstate', showContent)
+    
+    const views = {
+        '/home': () =>  '<h2>Home Page</h2><p>Welcome to our site! </p>',
+        '/catalog': () => '<h2>Catalog</h2><p>List of items</p>', 
+        '/about': () => '<h2>About us</h2><p>Contact: +1-555-7915</p>'
+    }
+    const main = document.querySelector('main');
+
+    document.body.addEventListener('click', ev => {
+        if (ev.target.tagName == 'A') {
+            ev.preventDefault()
+            history.pushState({}, '', ev.target.href);
+            showContent()
+        }
+    })
+
+
+    showContent()
+
+    function showContent (event) {
+        
+        const hash = window.location.pathname;
+
+        const view = views[hash]
+
+        if (typeof view == 'function') {
+            main.innerHTML = view()
+        } else {
+            main.innerHTML = '<h2>404</h2><p>Page not found </p>'
+        }
+    }
+
+    
+ 
+</script>
+
+</html>
