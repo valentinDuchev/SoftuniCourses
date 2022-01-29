@@ -1,0 +1,31 @@
+body {
+    background-color: lightgreen;
+    width: 980px;
+    margin: auto;
+}
+
+nav li {
+    list-style: none;
+    display: inline-block;
+}
+
+nav a {
+    text-decoration: none;
+    margin: 4px 8px;
+}
+
+.italics {
+    font-style: italic;
+}
+
+label {
+    display: block;
+}
+
+label span {
+    display: inline-block;
+}
+
+.promoted {
+    color: rgb(247, 163, 7)
+}

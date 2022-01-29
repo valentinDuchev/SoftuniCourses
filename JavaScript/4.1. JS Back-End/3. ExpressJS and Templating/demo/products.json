@@ -1,0 +1,19 @@
+{
+  "asdf1234": {
+    "name": "Widget",
+    "price": 12
+  },
+  "qwer5531": {
+    "name": "Cd Player",
+    "price": 59
+  },
+  "1d7422d0": {
+    "name": "Product 1",
+    "price": 89
+  },
+  "b4d6865a": {
+    "name": "Cheesecake",
+    "price": 11,
+    "promoted": true
+  }
+}
