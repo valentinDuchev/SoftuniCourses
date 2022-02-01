@@ -4,11 +4,5 @@
     "description": "32 000 miles. 2016. Petrol.  Imported from Wisconsin, USA. Full service history.",
     "imageUrl": "challenger5.7Hemi.png",
     "price": 39000
-  },
-  "089c7615-2013": {
-    "name": "Ford Mustang 4.7 V8 271 HP Shelby 1967",
-    "description": "49 000 miles. Petrol. 1967. Imported from Miami, USA. Very good condition. \r\n",
-    "imageUrl": "mustang1967Shelby.png",
-    "price": "100001"
   }
 }
