@@ -12,7 +12,7 @@ async function start() {
         useNewUrlParser: true
     });
     console.log('Database connected');
-    /*
+    /*8 
     Creating new Car to the database --> nov zapis
 
     try {
@@ -22,7 +22,7 @@ async function start() {
         });
         await car.save();
     } catch (err) {
-        console.log(err.message)  //tozi error shte se izpulni, ako pri suzdavane na zapis nakoi ot validatorite ne e izpulnen-chrez obekta err mojem da reshim koe negovo sv-vo da izpishem na potrebitelq
+        console.log(err.message)  //tozi error shte se izpulni, ako pri suzdavane na za pis nakoi ot validatorite ne e izpulnen-chrez obekta err mojem da reshim koe negovo sv-vo da izpishem na potrebitelq
     }
     */
 
