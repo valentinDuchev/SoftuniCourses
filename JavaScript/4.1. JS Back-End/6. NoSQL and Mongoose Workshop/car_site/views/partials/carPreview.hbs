@@ -1,0 +1,10 @@
+<div class="cube">
+    
+    <img class="cube" src="/static/images/{{imageUrl}}">
+    
+    <p class="name">{{name}}</p>
+    <p><span>Price:</span> {{#if price}}{{price}} {{else}}Free{{/if}}</p>
+    <a class="btn" href="/details/{{id}}">Details</a>
+    <button class="btn more">See more</button>
+    <div class="description" id="seeMoreBtn"><p>{{description}}</p></div>
+</div>
