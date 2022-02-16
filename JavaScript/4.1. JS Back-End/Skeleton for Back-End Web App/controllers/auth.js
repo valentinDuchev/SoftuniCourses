@@ -48,6 +48,11 @@ router.get('/logout', (req, res) => {
     res.redirect('/');
 });
 
+router.get('/logout', (req, res) => {
+    delete req.session.user;
+    res.redirect('/')
+})
+
 //Testing the skeleton ---> !!! RENAME testMain.hbs TO main.hbs
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Testing the skeleton ---> !!! RENAME testMain.hbs TO main.hbs
