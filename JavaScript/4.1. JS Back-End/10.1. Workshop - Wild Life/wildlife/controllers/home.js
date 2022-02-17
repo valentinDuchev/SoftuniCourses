@@ -1,5 +1,7 @@
-module.exports = {
-    async home(req, res) {
-        res.render('home', { title: 'Home Page' });
-    }
-}
+const router = require('express').Router();
+
+router.get('/', (req, res) => {
+    res.render('home', { title: 'Home Page' });
+})
+
+module.exports = router;
