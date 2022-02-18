@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { body, validationResult } = require('express-validator');
 const { isUser, isGuest } = require('../middleware/guards');
 const { register, login } = require('../services/userService');
-const mapErrors = require('../util/mappers');
+const {mapErrors} = require('../util/mappers');
 
 router.get('/register', isGuest(), (req, res) => {
     res.render('register', { title: 'Register' })

@@ -10,4 +10,24 @@ function mapErrors (err) {
     }
 }
 
-module.exports = mapErrors;
+function tripViewModel (trip) {
+    return {
+        _id: trip._id,
+        startPoint: trip.startPoint, 
+        endPoint: trip.endPoint, 
+        date: trip.date,
+        time: trip.time,
+        carImage: trip.carImage, 
+        carBrand: trip.carBrand, 
+        seats: trip.seats, 
+        price: trip.price, 
+        description: trip.description, 
+        //creator: userId
+    };
+}
+
+
+module.exports = {
+    mapErrors, 
+    tripViewModel
+};
