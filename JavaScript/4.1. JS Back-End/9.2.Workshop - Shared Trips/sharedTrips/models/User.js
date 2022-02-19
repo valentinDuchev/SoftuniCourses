@@ -13,7 +13,8 @@ const userSchema = new Schema({
         }
     },
     hashedPassword: { type: String, required: true },
-    gender: { type: String, required: true }
+    gender: { type: String, required: true }, 
+    trips: []
 });
 
 userSchema.index({ email: 1 }, {

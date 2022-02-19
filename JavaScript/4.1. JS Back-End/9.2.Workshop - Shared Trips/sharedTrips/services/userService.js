@@ -55,7 +55,10 @@ async function getUserByEmail (email) {
     return user;
 }
 
+
+
 module.exports = {
     login, 
-    register
+    register, 
+    getUserByEmail
 }

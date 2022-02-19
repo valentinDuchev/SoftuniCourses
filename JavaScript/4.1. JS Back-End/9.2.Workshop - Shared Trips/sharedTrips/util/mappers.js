@@ -22,12 +22,39 @@ function tripViewModel (trip) {
         seats: trip.seats, 
         price: trip.price, 
         description: trip.description, 
-        //creator: userId
+        creator: creatorViewModel(trip.creator), 
+        buddies: trip.buddies.map(buddyViewModel)
     };
+};
+
+function creatorViewModel (user) {
+    return {
+        _id: user._id, 
+        email: user.email, 
+    }
+};
+
+function buddyViewModel (user) {
+    return {
+        _id: user._id, 
+        email: user.email
+    }
 }
+
+function profileViewModel (profile) {
+    return {
+        _id: profile._id, 
+        email: profile.email, 
+        gender: profile.gender, 
+        trips: profile.trips
+    }
+}
+
+
 
 
 module.exports = {
     mapErrors, 
-    tripViewModel
+    tripViewModel, 
+    profileViewModel
 };

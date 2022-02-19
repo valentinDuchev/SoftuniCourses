@@ -5,9 +5,8 @@ const router = require('express').Router();
 
 router.get('/catalog', async (req, res) => {
     const trips = (await getTrips()).map(tripViewModel);
-    console.log(trips)
 
-    res.render('catalog', { trips })
+    res.render('catalog', { trips, title: 'Trip Catalog' })
 });
 
 module.exports = router;
