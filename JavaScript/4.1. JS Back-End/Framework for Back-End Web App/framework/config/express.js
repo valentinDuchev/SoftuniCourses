@@ -18,6 +18,7 @@ module.exports = (app) => {
     }));
     app.use(express.urlencoded({ extended: true }));
     app.use('/static', express.static('static'));
+    app.use(userSession());
     /*
     app.use(carsService());
     app.use(accessoryService());
