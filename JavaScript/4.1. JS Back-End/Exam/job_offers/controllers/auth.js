@@ -23,7 +23,7 @@ router.post('/register', isGuest(), async (req, res) => {
         res.redirect('/'); //TODO check redirect requirements
 
     } catch (err) {
-        console.log(err)
+        console.error(err)
         const errors = mapErrors(err);
         res.render('register', { title: 'Register', data: { email: req.body.email, skills: req.body.skills }, errors })
     }

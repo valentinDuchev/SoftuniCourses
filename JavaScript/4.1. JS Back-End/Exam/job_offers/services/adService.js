@@ -52,7 +52,6 @@ async function deleteById (id) {
 
 async function search (email) {
     const author = await getUserByEmail(email);
-    console.log(author._id)
     return await Ad.find({author: author._id}).lean()
 }
 
