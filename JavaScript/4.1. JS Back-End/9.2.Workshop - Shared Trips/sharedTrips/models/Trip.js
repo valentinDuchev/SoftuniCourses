@@ -23,6 +23,6 @@ const tripSchema = new Schema({
     buddies: { type: [ObjectId], ref: 'User', required: true }
 });
 
-const Trip = model('Post', tripSchema);
+const Trip = model('Trip', tripSchema);
 
 module.exports = Trip;
