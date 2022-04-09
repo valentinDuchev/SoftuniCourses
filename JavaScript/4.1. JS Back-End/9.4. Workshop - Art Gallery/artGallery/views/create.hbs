@@ -1,21 +1,25 @@
 <section id="create-container">
     <div class="create-container-info">
         <!-- Do not forget to change the path to the image -->
-        <img src="/static/img/blog-img12.jpg" alt="image">
+        <img src="https://c8.alamy.com/comp/RC2HXR/healthy-food-background-food-frame-RC2HXR.jpg" alt="image">
 
         <form action="/create" method="POST" class="container-text">
 
-            <h2>Create Publication</h2>
-            <p>Add your own masterpiece!</p>
+            <h2>Create Recipe</h2>
+            <p>valentin_duchev@abv.bg</p>
 
-            <label for="title">Title:</label>
+            <label for="title">Name:</label>
             <input type="text" id="title" placeholder="Spring in the garden" name="title" value="">
 
-            <label for="painting-tech">Painting technique:</label>
+            <label for="picture">Recipe Image</label>
+            <input type="text" id="picture" placeholder="http://..." name="picture" value="">
+
+
+            <label for="painting-tech">Type</label>
             <input type="text" id="painting-tech" placeholder="Oil paints" name="technique" value="">
 
-            <label for="picture">Art picture:</label>
-            <input type="text" id="picture" placeholder="http://..." name="picture" value="">
+            <label for="ingredients">Ingredients</label><br>
+            <textarea id="ingredients" placeholder="'First, Second etc..." name="ingredients"></textarea>
 
             <label for="certificate">Certificate of authenticity:</label>
             <input type="text" id="certificate" placeholder="Yes" name="certificate" value="">

@@ -2,14 +2,14 @@
 #edit-container {
     box-shadow: 0px 0px 10px 2px rgb(111, 44, 122);
     padding-top: 30px;
-    padding-bottom: 40px;
+    padding-bottom: 70px;
 }
 
 .create-container-info,
 .edit-container-info {
-    background-color: #fff;
+    background-color: rgb(221, 136, 9);
     width: 600px;
-    height: 500px;
+    height: 700px;
     position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -43,4 +43,9 @@
 .edit-btn:hover {
     background-image: linear-gradient(to right, #F3CEA4, #251338);
     box-shadow: none;
+}
+
+#ingredients {
+    width: 100%;
+    height: 100px;
 }

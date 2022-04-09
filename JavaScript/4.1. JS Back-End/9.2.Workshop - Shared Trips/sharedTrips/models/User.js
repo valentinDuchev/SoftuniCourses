@@ -5,7 +5,7 @@ const EMAIL_PATTERN = /^([a-zA-Z]+)@([a-zA-Z]+\.([a-zA-Z]+))$/;
 //TODO change user model according to exam description
 const userSchema = new Schema({
     email: {
-        type: String, required: [true, 'Email is required'], valudate: {
+        type: String, required: [true, 'Email is required'], validate: {
             validator(value) {
                 return EMAIL_PATTERN.test(value);
             },
